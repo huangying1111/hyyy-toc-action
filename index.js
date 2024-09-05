@@ -1,5 +1,3 @@
-const fs = require('fs')
-const path = require('path')
 const { getInput, setFailed } = require('@actions/core')
 const { getOctokit } = require('@actions/github')
 
@@ -31,7 +29,6 @@ async function main() {
     }
 
     // 在 GitHub Actions 工作流程中使用
-    // const token = getInput('token')
     // const owner = 'huangying1111'
     // const repo = 'Hyyy-Learning-Record'
     // const directory = ''

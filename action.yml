@@ -10,8 +10,11 @@ inputs:
     required: true
     description: '仓库名'
   directory:
-    required: true
+    required: false
     description: '要搜索的目录'
+  token:
+    required: true
+    description: 'GITHUB_TOKEN'
 runs:
   using: 'node20'
   main: 'index.js'
