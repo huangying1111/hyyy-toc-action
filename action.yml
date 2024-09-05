@@ -1,13 +1,8 @@
 name: 'hyyy-toc-action'
 description: '生成目录的md文件'
 inputs:
-  who-to-greet: # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  ignore:
+    required: false
 runs:
   using: 'node20'
   main: 'index.js'
