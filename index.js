@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { getInput, setFailed } = require('@actions/core')
-const { GitHub } = require('@actions/github')
+const { getOctokit } = require('@actions/github')
 
 async function main() {
   try {
@@ -31,11 +31,15 @@ async function main() {
     }
 
     // 在 GitHub Actions 工作流程中使用
+    // const token = getInput('token')
+    // const owner = 'huangying1111'
+    // const repo = 'Hyyy-Learning-Record'
+    // const directory = ''
     const token = getInput('token')
     const owner = getInput('owner')
     const repo = getInput('repo')
     const directory = getInput('directory')
-    const github = new GitHub(token)
+    const github = getOctokit(token)
     searchDirectory(github, owner, repo, directory)
   } catch (error) {
     setFailed(error.message)
