@@ -1,20 +1,28 @@
 name: 'hyyy-toc-action'
 description: '生成目录的md文件'
 inputs:
-  ignore:
-    required: false
   owner:
     required: true
     description: '实际的仓库所有者'
   repo:
     required: true
     description: '仓库名'
-  directory:
-    required: false
-    description: '要搜索的目录'
   token:
     required: true
     description: 'GITHUB_TOKEN'
+  ignore:
+    required: false
+    description: '屏蔽关键字'
+    default: []
+  updatePath:
+    required: false
+    description: '更新文件地址'
+    default: 'README.md'
+  commitMessage:
+    required: false
+    description: '更新提交内容'
+    default: '更新目录'
+
 runs:
   using: 'node20'
   main: 'index.js'
