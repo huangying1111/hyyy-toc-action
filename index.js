@@ -21,7 +21,7 @@ class App {
     this._owner = getInput('owner')
     this._repo = getInput('repo')
     this._token = getInput('token')
-    this._ignore = getInput('ignore') ?? []
+    this._ignore = getInput('ignore').split(',')
     this._updatePath = getInput('updatePath')
     this._commitMessage = getInput('commitMessage')
 

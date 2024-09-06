@@ -13,7 +13,7 @@ inputs:
   ignore:
     required: false
     description: '屏蔽关键字'
-    default: []
+    default: ''
   updatePath:
     required: false
     description: '更新文件地址'
