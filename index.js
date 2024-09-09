@@ -63,6 +63,8 @@ class App {
       }
     )
     this._tree = getTreePath.data.tree
+    console.log('this._tree', this._tree)
+
     let matchingFiles = getTreePath.data.tree
     if (this._ignore.length > 0) {
       matchingFiles = matchingFiles.filter((file) =>
@@ -97,9 +99,17 @@ class App {
     const currentContent = data.data[0]
     const sha = currentContent.sha
     const content = Buffer.from(newContent).toString('base64')
-    const getPathSha = this._tree.filter((e) => {
+    const list = this._tree.filter((e) => {
       return e.path == this._updatePath
-    })[0]['sha']
+    })
+    console.log('filter', list)
+    if (list.length == 0) {
+      return console.error(
+        'Error:',
+        `没有找到 “ ${this._updatePath} ”路径的文件`
+      )
+    }
+    const getPathSha = list[0]?.sha
     await this._github.request('PUT /repos/{owner}/{repo}/contents/{path}', {
       owner: this._owner,
       repo: this._repo,
