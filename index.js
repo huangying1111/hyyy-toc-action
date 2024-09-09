@@ -79,7 +79,7 @@ class App {
       const namesArr = `/${item.path}`.split('/')
       markdown += `${item.type == 'tree' ? '###' : '*'} [${
         namesArr[namesArr.length - 1]
-      }](https://github.com/${this._owner}/${this._repo}/tree/master${
+      }](https://github.com/${this._owner}/${this._repo}/tree/master/${
         item.path
       })\n\n`
     })
